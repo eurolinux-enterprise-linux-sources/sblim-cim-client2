@@ -4,7 +4,7 @@
 
 Name:           sblim-cim-client2
 Version:        2.1.3
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Java CIM Client library
 
 Group:          Development/Libraries
@@ -14,6 +14,8 @@ Source0:        http://downloads.sourceforge.net/project/sblim/%{name}/%{version
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 BuildArch:      noarch
+
+Patch0:         sblim-cim-client2-2.1.3-xml-hash-dos.patch
 
 BuildRequires:  java-devel >= 1.4
 BuildRequires:  jpackage-utils >= 0:1.5.32
@@ -49,6 +51,7 @@ Manual and sample code for %{name}.
 
 %prep
 %setup -q -n %{project_folder}
+%patch0 -p1 -b .xml-hash-dos
 
 dos2unixConversion() {
         fileName=$1
@@ -125,6 +128,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Apr 23 2012 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.1.3-2
+- Fix possible XML Hash DoS
+  Resolves: #803391
+
 * Wed Jun  2 2010 Vitezslav Crhonek <vcrhonek@redhat.com> - 2.1.3
 - Update to sblim-cim-client2-2.1.3
 
