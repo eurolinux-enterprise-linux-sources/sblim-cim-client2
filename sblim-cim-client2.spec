@@ -4,7 +4,7 @@
 
 Name:           sblim-cim-client2
 Version:        2.2.1
-Release:        2%{?dist}
+Release:        3%{?dist}
 Summary:        Java CIM Client library
 
 Group:          Development/Libraries
@@ -117,6 +117,9 @@ cp -pr %{archive_folder}/doc/* $RPM_BUILD_ROOT%{_javadocdir}/%{name}
 
 
 %changelog
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 2.2.1-3
+- Mass rebuild 2013-12-27
+
 * Thu Feb 14 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2.1-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
